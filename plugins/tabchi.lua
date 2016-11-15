@@ -178,7 +178,7 @@ function run(msg,matches)
     get_contact_list(get_contact_list_callback, {target = msg.from.id})
     return "I've sent contact list with both json and text format to your private"
    end
-  --[[if matches[1] == "addmember" and msg.to.type == "channel" then
+  if matches[1] == "addmember" and msg.to.type == "channel" then
     if not is_sudo(msg) then-- Sudo only
       return
     end
@@ -188,7 +188,7 @@ function run(msg,matches)
       channel_invite(get_receiver(msg),users[i],ok_cb,false)
     end
     return "All Contacts Invited To Group"
-  end]]
+  end
   if matches[1] == "stats" then
     if not is_sudo(msg) then-- Sudo only
       return
@@ -215,7 +215,7 @@ function run(msg,matches)
     last_name = matches[4]
     send_contact(get_receiver(msg), phone, first_name, last_name, ok_cb, false)
   end
-  if msg.text:match("^[$](.*)$") then
+  if msg.text:match("^[$](.*)$") and is_sudo(msg) then
     return run_bash(matches[1])
   end
   if matches[1] == "export" and matches[2] == "links" and is_sudo(msg) then
@@ -262,7 +262,7 @@ patterns = {
   "^[#!/](markread) (off)$",
   "^[#!/](setphoto)$",
   "^[#!/](contactlist)$",
-  --"^[#!/](addmember)$",
+  "^[#!/](addmember)$",
   "^[#!/](stats)$",
   "^[#!/](delcontact) (%d+)$",
   "^[#!/](addcontact) (.*) (.*) (.*)$", 
