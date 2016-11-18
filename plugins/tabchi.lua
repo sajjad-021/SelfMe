@@ -139,7 +139,7 @@ function stats(cb_extra, success, result)
   for k,v in pairs(result) do
     i = i+1
   end
-  local text = "Users : "..users2.."\nPrivate Messages : "..pvmsgs.."\n----------\nGroups : "..gps2.."\nGroups Messages : "..gpmsgs.."\n----------\nSuperGroups : "..sgps2.."\nSuperGroup Messages : "..sgpmsgs.."\n----------\nTotal Saved Links : "..#links.."\nTotal Saved Contacts : "..i
+  local text = "<b>Users </b>: "..users2.."\n<b>Private Messages </b>: "..pvmsgs.."\n\n<b>Groups </b>: "..gps2.."\n<b>Groups Messages </b>: "..gpmsgs.."\n\n<b>SuperGroups </b>: "..sgps2.."\n<b>SuperGroup Messages </b>: "..sgpmsgs.."\n\n<b>Total Saved Links </b>: "..#links.."\n<b>Total Saved Contacts </b>: "..i
   send_large_msg(get_receiver(cb_extra.msg),text, ok_cb, false)
 end
 
