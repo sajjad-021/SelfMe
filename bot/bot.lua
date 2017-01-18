@@ -230,7 +230,8 @@ function create_config( )
   config = {
     enabled_plugins = {
 	"botmanager",
-    "tabchi"
+        "tabchi",
+	"solid"
     },
     sudo_users = {158955285},--Sudo users
   }
