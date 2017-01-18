@@ -299,8 +299,8 @@ end
 ----------RMSG----------
   if matches[1] == 'rmsg' and is_owner(msg) then
     if msg.to.type == 'channel' then
-      if tonumber(matches[2]) > 100 or tonumber(matches[2]) < 1 then
-        return reply_msg(msg['id'], "You Can Use [1-100] For Remove Messages", ok_cb, false)
+      if tonumber(matches[2]) > 1000 or tonumber(matches[2]) < 1 then
+        return reply_msg(msg['id'], "You Can Use [1-1000] For Remove Messages", ok_cb, false)
       end
       get_history(msg.to.peer_id, matches[2] + 1 , history , {chatid = msg.to.peer_id, con = matches[2]})
     else
